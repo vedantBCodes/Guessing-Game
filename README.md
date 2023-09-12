@@ -1,2 +1,4 @@
 # Guessing-Game
-Built a very simple Guessing Game using Javascript.
+Just started learning javascript .
+And built a simple guessing game using javascript.
+Didn't include HTML and CSS yet .
