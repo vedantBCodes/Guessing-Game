@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" >
+    <title>Guessing Game</title>
+</head>
+<body>
+    <script>
+        var maxNum = parseInt(prompt("Enter the maximum number!"));
+while (!maxNum)   //Here we are checking whether the user is entering a number or not
+{
+    maxNum = parseInt(prompt("Enter a valid number!"));
+}
+
+const targetNum = Math.floor(Math.random() * maxNum) + 1;  
+
+//Math.random will generate a random decimal number between 0 to 1
+//Math.floor will remove all the numbers after the decimal point
+//And targetNum will be the random integer between 1 and the maxNumber entered by user
+
+var guess = prompt("Enter your first guess! (Type 'q' to quit)");
+
+//Here we are not using parseInt because user may enter 'q' which is not an integer
+
+var attempts = 1;
+
+while (parseInt(guess) !== targetNum)   //Here we are converting entered guess into an integer if the guess is not equal to 'q'
+{
+    if (guess === 'q') 
+    {
+        break;
+    } 
+
+    guess = parseInt(guess);    //here parseInt is using so that we can compair guess with the targetNum
+    
+    if (guess > targetNum) 
+    {
+        guess = prompt("Too high! Enter a new guess:");
+        attempts++;
+    } 
+    else if (guess < targetNum) 
+    {
+        guess = prompt("Too low! Enter a new guess:");
+        attempts++;
+    } 
+    else {
+        guess = prompt("Invalid guess. Please enter a number or 'q' to quit");
+    }
+}
+
+if (guess === 'q') 
+{
+    alert("OK, YOU QUIT!")
+} 
+else 
+{
+    alert("CONGRATS YOU WIN!")
+    alert(`You got it! It took you ${attempts} guesses`)
+}
+    </script>
+</body>
+</html>
